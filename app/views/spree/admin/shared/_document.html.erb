@@ -1,0 +1,6 @@
+<div>
+  <%= f.field_container :documents do %>
+    <%= f.label :document, Spree.t(:document) %>
+    <%= f.file_field :documents, multiple: true %>
+  <% end %>
+</div>
