@@ -1,17 +1,18 @@
 <% if @product and !@product.docs.empty? %>
-<table>
-  <tr>
-	<td><h3><span class="glyphicon glyphicon-file"></span> <%= Spree.t(:product_downloads) %></h3></td>
-  </tr>
-  <% if @product.docs.empty? %>
-    <tr><td><p><%= t("none") %></p></td></tr>
-  <% else %>
-    <% @product.docs.each do |doc| %>
-      <tr><td class="product-documents">
-        <p>
-          <%= link_to(doc.attachment.instance.caption, doc.attachment.url, { :target => "_blank" }) %></p>
-      </td></tr>
+  <table>
+    <tr>
+      <td><h3><span class="glyphicon glyphicon-file"></span> <%= Spree.t(:product_downloads) %></h3></td>
+    </tr>
+    <% if @product.docs.empty? %>
+      <tr><td><p><%= Spree.t("none") %></p></td></tr>
+    <% else %>
+      <ul>
+        <% @product.docs.each do |doc| %>
+          <li>
+            <%= link_to(doc.attachment.instance.caption, doc.attachment.url, { :target => "_blank" }) %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
-  <% end %>
-</table>
+  </table>
 <% end %>
