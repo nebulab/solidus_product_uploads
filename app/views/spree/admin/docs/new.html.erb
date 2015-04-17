@@ -1,0 +1,21 @@
+<script type="text/javascript">    
+  jQuery('#cancel_link').click(function (event) { 
+    jQuery('#new_doc_link').show();
+    jQuery('#docs').html('');
+  });  
+ 
+</script>
+ 
+<%= form_for [:admin, @product, @doc], :html => { :multipart => true } do |f| %>
+  <fieldset data-hook="new_doc">
+    <legend align="center"><%= t(:new_doc) %></legend>
+
+      <%= render :partial => 'form', :locals => { :f => f } %>
+    
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button t(:update), 'icon-refresh' %>
+        <span class="or"><%= t(:or) %></span>
+        <%= link_to_with_icon 'icon-remove', t(:cancel), admin_product_docs_url(@product), :id => 'cancel_link', :class => 'button' %>
+      </div>
+  </fieldset>
+<% end %>
