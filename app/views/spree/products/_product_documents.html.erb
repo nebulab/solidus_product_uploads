@@ -1,5 +1,5 @@
 <% if @product and !@product.docs.empty? %>
-  <h3><%= fa_icon "file" %></span> <%= Spree.t(:product_downloads) %></h3>
+  <h3><%= fa_icon "file" %> <%= Spree.t(:product_downloads) %></h3>
   <% if @product.docs.empty? %>
     <p><%= Spree.t("none") %></p>
   <% else %>
