@@ -1,14 +1,21 @@
 <% if @product and !@product.docs.empty? %>
-  <h3><i class="fa fa-file"> <%= Spree.t(:product_downloads) %></h3>
-  <% if @product.docs.empty? %>
-    <p><%= Spree.t("none") %></p>
-  <% else %>
-    <ul>
-      <% @product.docs.each do |doc| %>
-        <li>
-          <%= link_to(doc.attachment.instance.caption, doc.attachment.url, { :target => "_blank" }) %>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4><i class="fa fa-file"> <%= Spree.t(:product_downloads) %></h4>
+    </div>
+    <% if @product.docs.empty? %>
+      <p><%= Spree.t("none") %></p>
+    <% else %>
+      <table class="table">
+        <% @product.docs.each do |doc| %>
+          <tr>
+            <td>
+              <i class="fa fa-angle-double-down">
+              <%= link_to(doc.attachment.instance.caption, doc.attachment.url, { :target => "_blank" }) %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+    <% end %>
+  </div>
 <% end %>
