@@ -1,7 +1,12 @@
 <% if @product and !@product.docs.empty? %>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h4><i class="fa fa-file"></i> <%= Spree.t(:product_downloads) %></h4>
+      <h4>
+        <i class="fa fa-file"></i>
+        <span id="product_downloads">
+          <%= Spree.t(:product_downloads) %>
+        </span>
+      </h4>
     </div>
     <% if @product.docs.empty? %>
       <p><%= Spree.t("none") %></p>
