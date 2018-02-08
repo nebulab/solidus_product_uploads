@@ -2,7 +2,7 @@ module SpreeProductUploads
   class Engine < Rails::Engine
     require 'spree/core'
     isolate_namespace Spree
-    engine_name 'spree_product_uploads'
+    engine_name 'solidus_product_uploads'
 
     # use rspec for tests
     config.generators do |g|
